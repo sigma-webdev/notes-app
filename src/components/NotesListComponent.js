@@ -41,6 +41,7 @@ function NotesListComponent({ note, notes, setNotes }) {
   useEffect(() => {
     noteRef.current.style.backgroundColor = currentNote.color;
     ShowSaveButton();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentNote]);
 
   return (
@@ -51,7 +52,7 @@ function NotesListComponent({ note, notes, setNotes }) {
     >
       {/* title input field */}
       <input
-        className="outline-none block mb-4 bg-transparent w-full pr-6 text-gray-400"
+        className="block w-full pr-6 mb-4 text-gray-400 bg-transparent outline-none"
         value={currentNote.title}
         type="text"
         placeholder="Title"
@@ -65,7 +66,7 @@ function NotesListComponent({ note, notes, setNotes }) {
 
       {/* text input field */}
       <textarea
-        className="outline-none bg-transparent w-full text-gray-400"
+        className="w-full text-gray-400 bg-transparent outline-none"
         value={currentNote.text}
         row="2"
         placeholder="Take a note"
@@ -93,7 +94,7 @@ function NotesListComponent({ note, notes, setNotes }) {
       </button>
 
       {/*  mark not as important  */}
-      <div className=" absolute top-3 right-3">
+      <div className="absolute  top-3 right-3">
         {/* if isimportant is true show filled star ⭐ else show unfilled start ✡️*/}
         {currentNote.isImportant ? (
           // fillded star
@@ -115,7 +116,7 @@ function NotesListComponent({ note, notes, setNotes }) {
           // unfilled  star
           <button type="button">
             <svg
-              className="w-8 h-8 text-gray-800 dark:text-white cursor-pointer"
+              className="w-8 h-8 text-gray-800 cursor-pointer dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -138,55 +139,55 @@ function NotesListComponent({ note, notes, setNotes }) {
       </div>
 
       {/* select color */}
-      <div className="flex gap-5 absolute -bottom-2 right-40 ">
+      <div className="absolute flex gap-5 -bottom-2 right-40 ">
         <button
           type="button"
-          className="h-5 w-5 rounded-full shadow-md bg-orange-200"
+          className="w-5 h-5 bg-orange-200 rounded-full shadow-md"
           onClick={() =>
             setCurrentNote({ ...currentNote, color: "lightgoldenrodyellow" })
           }
         >
           {currentNote.color === "lightgoldenrodyellow" ? (
-            <div className="h-2 w-2  m-auto   rounded-full   bg-white"></div>
+            <div className="w-2 h-2 m-auto bg-white rounded-full"></div>
           ) : null}
         </button>
 
         <button
           type="button"
-          className="h-5 w-5 rounded-full    shadow-md    bg-green-300"
+          className="w-5 h-5 bg-green-300 rounded-full shadow-md"
           onClick={() =>
             setCurrentNote({ ...currentNote, color: "lightgreen" })
           }
         >
           {currentNote.color === "lightgreen" ? (
-            <div className="h-2 w-2  m-auto   rounded-full   bg-white"></div>
+            <div className="w-2 h-2 m-auto bg-white rounded-full"></div>
           ) : null}
         </button>
         <button
           type="button"
-          className="h-5 w-5 rounded-full   shadow-md  bg-pink-300"
+          className="w-5 h-5 bg-pink-300 rounded-full shadow-md"
           onClick={() => setCurrentNote({ ...currentNote, color: "lightpink" })}
         >
           {currentNote.color === "lightpink" ? (
-            <div className="h-2 w-2  m-auto   rounded-full   bg-white"></div>
+            <div className="w-2 h-2 m-auto bg-white rounded-full"></div>
           ) : null}
         </button>
         <button
           type="button"
-          className="h-5 w-5 rounded-full shadow-md    bg-blue-300"
+          className="w-5 h-5 bg-blue-300 rounded-full shadow-md"
           onClick={() => setCurrentNote({ ...currentNote, color: "lightcyan" })}
         >
           {currentNote.color === "lightcyan" ? (
-            <div className="h-2 w-2  m-auto   rounded-full   bg-white"></div>
+            <div className="w-2 h-2 m-auto bg-white rounded-full"></div>
           ) : null}
         </button>
         <button
           type="button"
-          className="h-5 w-5 rounded-full   shadow-md  bg-gray-300"
+          className="w-5 h-5 bg-gray-300 rounded-full shadow-md"
           onClick={() => setCurrentNote({ ...currentNote, color: "lightgray" })}
         >
           {currentNote.color === "lightgray" ? (
-            <div className="h-2 w-2  m-auto   rounded-full   bg-white"></div>
+            <div className="w-2 h-2 m-auto bg-white rounded-full"></div>
           ) : null}
         </button>
       </div>
